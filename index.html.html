@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RJN Physical Therapy | Orthopedic & Sports Injury Care | Latham, NY</title>
+  <meta name="description" content="RJN Physical Therapy — orthopedic and sports injury specialists in Latham, NY since 1994. Expert therapists, personalized care, proven results.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --z950: #09090b; --z900: #18181b; --z800: #27272a; --z700: #3f3f46;
+      --z600: #52525b; --z500: #71717a; --z400: #a1a1aa; --z300: #d4d4d8;
+      --z200: #e4e4e7; --z100: #f4f4f5; --z50: #fafafa;
+      --cy500: #06b6d4; --cy400: #22d3ee; --cy300: #67e8f9;
+      --cy200: #a5f3fc; --cy100: #cffafe;
+      --cy-g: rgba(34,211,238,.1); --cy-gs: rgba(34,211,238,.18);
+      --fd: 'Instrument Serif', Georgia, serif;
+      --fb: 'Outfit', system-ui, sans-serif;
+      --ease: cubic-bezier(.22,1,.36,1);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+    body { font-family: var(--fb); color: var(--z900); background: var(--z50); line-height: 1.65; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    .w { width: min(1200px, 90%); margin: 0 auto; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+
+    /* ── NAV ── */
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(250,250,250,.82); backdrop-filter: blur(24px) saturate(1.5); -webkit-backdrop-filter: blur(24px) saturate(1.5); border-bottom: 1px solid var(--z200); }
+    .nav-i { display: flex; align-items: center; justify-content: space-between; height: 70px; }
+    .nav-b { display: flex; align-items: center; gap: 12px; }
+    .nav-b img { width: 42px; height: 42px; border-radius: 10px; object-fit: cover; }
+    .nav-bt { line-height: 1.15; }
+    .nav-bt strong { font-family: var(--fd); font-size: 1.05rem; display: block; }
+    .nav-bt small { font-size: .62rem; font-weight: 600; color: var(--z500); letter-spacing: .1em; text-transform: uppercase; }
+    .nm { display: flex; align-items: center; gap: 2px; }
+    .nm a { padding: 7px 15px; font-size: .8rem; font-weight: 500; color: var(--z600); border-radius: 8px; transition: all .2s var(--ease); }
+    .nm a:hover { color: var(--z900); background: var(--z100); }
+    .nm .nc { margin-left: 8px; padding: 9px 22px; background: var(--z900); color: var(--z50); border-radius: 10px; font-weight: 600; }
+    .nc:hover { background: var(--z800) !important; color: var(--z50) !important; }
+    .hb { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+    .hb span { display: block; width: 22px; height: 2px; background: var(--z900); border-radius: 2px; transition: .3s var(--ease); }
+    .hb span+span { margin-top: 5px; }
+    .hb.on span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+    .hb.on span:nth-child(2) { opacity: 0; }
+    .hb.on span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+
+    /* ── HERO ── */
+    .hero { min-height: 100vh; display: flex; align-items: center; background: var(--z950); position: relative; overflow: hidden; }
+    .hero-g { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; padding: 130px 0 100px; }
+    .hero-ey { display: inline-flex; align-items: center; gap: 10px; font-size: .7rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--cy400); margin-bottom: 28px; animation: fu .8s var(--ease) .2s both; }
+    .hero-ey::before { content: ''; width: 32px; height: 1px; background: var(--cy500); }
+    .hero h1 { font-family: var(--fd); font-size: clamp(3rem,5.5vw,4.5rem); color: var(--z50); line-height: 1.05; letter-spacing: -.02em; margin-bottom: 28px; animation: fu .8s var(--ease) .3s both; }
+    .hero h1 em { font-style: italic; color: var(--cy400); }
+    .hero-p { font-size: 1.05rem; color: var(--z400); line-height: 1.75; max-width: 440px; margin-bottom: 40px; animation: fu .8s var(--ease) .45s both; }
+    .hero-a { display: flex; gap: 14px; flex-wrap: wrap; animation: fu .8s var(--ease) .6s both; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; font-family: var(--fb); font-size: .86rem; font-weight: 600; border-radius: 12px; border: none; cursor: pointer; transition: all .3s var(--ease); }
+    .btn svg { width: 16px; height: 16px; transition: transform .3s var(--ease); }
+    .btn:hover svg { transform: translateX(3px); }
+    .btn-cy { background: var(--cy500); color: var(--z950); }
+    .btn-cy:hover { background: var(--cy400); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(6,182,212,.25); }
+    .btn-gh { background: transparent; color: var(--z300); border: 1.5px solid var(--z700); }
+    .btn-gh:hover { border-color: var(--z500); color: var(--z50); transform: translateY(-2px); }
+    .btn-dk { background: var(--z900); color: var(--z50); }
+    .btn-dk:hover { background: var(--z800); transform: translateY(-2px); }
+    .hero-v { position: relative; animation: fi 1s var(--ease) .5s both; }
+    .hero-v img { width: 100%; height: 520px; object-fit: cover; border-radius: 20px; border: 1px solid var(--z800); }
+    .hf-card { position: absolute; bottom: -28px; left: -36px; background: var(--z900); border: 1px solid var(--z800); border-radius: 16px; padding: 22px 26px; animation: fu .8s var(--ease) .9s both; }
+    .hf-card .n { font-family: var(--fd); font-size: 2.8rem; color: var(--cy400); line-height: 1; }
+    .hf-card .l { font-size: .72rem; color: var(--z500); font-weight: 500; margin-top: 2px; }
+    .hs-row { position: absolute; top: -18px; right: -18px; display: flex; gap: 10px; animation: fu .8s var(--ease) 1s both; }
+    .hs-pill { background: var(--z900); border: 1px solid var(--z800); border-radius: 12px; padding: 14px 18px; text-align: center; }
+    .hs-pill .n { font-family: var(--fd); font-size: 1.5rem; color: var(--z50); line-height: 1; }
+    .hs-pill .l { font-size: .65rem; color: var(--z500); font-weight: 500; margin-top: 2px; }
+    .hero-glow { position: absolute; width: 600px; height: 600px; border-radius: 50%; background: var(--cy500); opacity: .04; filter: blur(120px); top: 50%; right: -100px; transform: translateY(-50%); }
+    @keyframes fu { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fi { from { opacity: 0; } to { opacity: 1; } }
+
+    /* ── ABOUT ── */
+    .about { padding: 120px 0; }
+    .about-l { display: grid; grid-template-columns: .48fr .52fr; gap: 80px; align-items: center; }
+    .about-m { position: relative; }
+    .about-m img { width: 100%; height: 500px; object-fit: cover; border-radius: 16px; }
+    .about-m .ab { position: absolute; top: 28px; right: -18px; width: 4px; height: 110px; background: var(--cy500); border-radius: 4px; }
+    .tag { display: inline-flex; align-items: center; gap: 8px; font-size: .68rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--cy500); margin-bottom: 16px; }
+    .tag::before { content: ''; width: 22px; height: 2px; background: var(--cy500); border-radius: 2px; }
+    .hd { font-family: var(--fd); font-size: clamp(1.9rem,3.5vw,2.7rem); line-height: 1.1; letter-spacing: -.015em; margin-bottom: 20px; }
+    .pr { font-size: .92rem; color: var(--z600); line-height: 1.8; max-width: 500px; }
+    .mis { margin-top: 30px; padding: 26px 30px; background: var(--z100); border-left: 3px solid var(--cy500); border-radius: 0 12px 12px 0; }
+    .mis h4 { font-family: var(--fd); font-size: 1.05rem; margin-bottom: 8px; }
+    .mis p { font-size: .86rem; color: var(--z600); font-style: italic; line-height: 1.7; }
+
+    /* ── SERVICES ── */
+    .svc { padding: 120px 0; background: var(--z950); color: var(--z50); position: relative; overflow: hidden; }
+    .svc .tag { color: var(--cy400); } .svc .tag::before { background: var(--cy400); }
+    .svc .hd { color: var(--z50); } .svc .pr { color: var(--z400); }
+    .svc-h { max-width: 500px; margin-bottom: 60px; }
+    .svc-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--z800); border-radius: 20px; overflow: hidden; border: 1px solid var(--z800); }
+    .sc { background: var(--z900); padding: 40px 30px; transition: all .35s var(--ease); position: relative; }
+    .sc:hover { background: rgba(34,211,238,.04); }
+    .sc::after { content: ''; position: absolute; bottom: 0; left: 30px; right: 30px; height: 2px; background: var(--cy500); transform: scaleX(0); transform-origin: left; transition: transform .4s var(--ease); }
+    .sc:hover::after { transform: scaleX(1); }
+    .sc-n { font-family: var(--fd); font-size: 2.4rem; color: var(--z800); line-height: 1; margin-bottom: 20px; transition: color .35s var(--ease); letter-spacing: -.02em; }
+    .sc:hover .sc-n { color: var(--cy500); }
+    .sc h3 { font-family: var(--fd); font-size: 1.25rem; margin-bottom: 10px; }
+    .sc p { font-size: .84rem; color: var(--z500); line-height: 1.7; }
+    .svc-gl { position: absolute; width: 500px; height: 500px; background: var(--cy500); opacity: .03; filter: blur(150px); border-radius: 50%; bottom: -200px; left: -100px; }
+
+    /* ── TEAM ── */
+    .team { padding: 120px 0; }
+    .team-h { text-align: center; max-width: 540px; margin: 0 auto 60px; }
+    .team-h .pr { margin: 0 auto; }
+    .tg { display: grid; grid-template-columns: repeat(4,1fr); gap: 18px; }
+    .tc { border-radius: 16px; overflow: hidden; background: var(--z100); border: 1px solid var(--z200); transition: all .35s var(--ease); }
+    .tc:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,.07); border-color: var(--cy200); }
+    .tc-i { height: 280px; overflow: hidden; }
+    .tc-i img { width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform .5s var(--ease); }
+    .tc:hover .tc-i img { transform: scale(1.04); }
+    .tc-b { padding: 18px 20px; }
+    .tc-b h3 { font-family: var(--fd); font-size: 1.1rem; margin-bottom: 2px; }
+    .tc-b span { font-size: .72rem; font-weight: 600; color: var(--cy500); }
+
+    /* ── SHOP ── */
+    .shop { padding: 120px 0; background: var(--z900); color: var(--z50); position: relative; overflow: hidden; }
+    .shop .tag { color: var(--cy400); } .shop .tag::before { background: var(--cy400); }
+    .shop-h { text-align: center; max-width: 560px; margin: 0 auto 60px; }
+    .shop-h .pr { margin: 0 auto; color: var(--z400); }
+    .sg { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+    .pc { background: var(--z800); border: 1px solid var(--z700); border-radius: 20px; overflow: hidden; transition: all .4s var(--ease); display: flex; flex-direction: column; }
+    .pc:hover { transform: translateY(-6px); border-color: var(--cy500); box-shadow: 0 0 50px rgba(34,211,238,.07); }
+    .pc-hero { height: 220px; display: flex; align-items: center; justify-content: center; background: var(--z950); position: relative; }
+    .pc-hero svg { width: 80px; height: 80px; color: var(--cy500); opacity: .15; }
+    .pc-badge { position: absolute; top: 14px; left: 14px; padding: 5px 12px; background: var(--cy500); color: var(--z950); font-size: .65rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; border-radius: 8px; }
+    .pc-body { padding: 28px; flex: 1; display: flex; flex-direction: column; }
+    .pc-body h3 { font-family: var(--fd); font-size: 1.4rem; margin-bottom: 4px; }
+    .pc-body .ps { font-size: .78rem; color: var(--cy400); font-weight: 600; margin-bottom: 14px; }
+    .pc-body > p { font-size: .85rem; color: var(--z400); line-height: 1.75; margin-bottom: 20px; }
+    .pt { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 24px; }
+    .pt span { padding: 5px 12px; background: var(--z900); border: 1px solid var(--z700); border-radius: 8px; font-size: .7rem; font-weight: 600; color: var(--z300); display: inline-flex; align-items: center; gap: 5px; }
+    .pt span svg { width: 11px; height: 11px; color: var(--cy400); }
+    .pc-ft { margin-top: auto; padding-top: 20px; border-top: 1px solid var(--z700); display: flex; align-items: center; justify-content: space-between; }
+    .pc-ft .pr { font-family: var(--fd); font-size: 1rem; color: var(--z300); max-width: none; }
+
+    /* ── TESTIMONIALS ── */
+    .test { padding: 120px 0; background: var(--z100); }
+    .test-h { text-align: center; max-width: 480px; margin: 0 auto 60px; }
+    .test-h .pr { margin: 0 auto; }
+    .test-g { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+    .tsc { background: var(--z50); border: 1px solid var(--z200); border-radius: 16px; padding: 34px 28px; display: flex; flex-direction: column; transition: all .3s var(--ease); }
+    .tsc:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,.05); border-color: var(--cy300); }
+    .ts-s { display: flex; gap: 2px; margin-bottom: 18px; }
+    .ts-s svg { width: 15px; height: 15px; fill: var(--cy500); color: var(--cy500); }
+    .tsc blockquote { font-size: .86rem; color: var(--z600); line-height: 1.8; flex: 1; margin-bottom: 22px; font-style: italic; }
+    .ts-a { display: flex; align-items: center; gap: 12px; padding-top: 18px; border-top: 1px solid var(--z200); }
+    .ts-av { width: 38px; height: 38px; border-radius: 50%; background: var(--cy-g); display: flex; align-items: center; justify-content: center; font-family: var(--fd); font-size: 1rem; color: var(--cy500); }
+    .ts-a strong { font-size: .82rem; } .ts-a small { font-size: .7rem; color: var(--z500); display: block; }
+
+    /* ── INSURANCE ── */
+    .ins { padding: 120px 0; }
+    .ins-l { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: start; }
+    .il { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .ii { display: flex; align-items: center; gap: 10px; padding: 13px 16px; background: var(--z100); border: 1px solid var(--z200); border-radius: 10px; font-size: .84rem; font-weight: 500; transition: all .2s var(--ease); }
+    .ii:hover { border-color: var(--cy400); background: var(--cy-g); transform: translateX(4px); }
+    .ii svg { width: 15px; height: 15px; color: var(--cy500); flex-shrink: 0; }
+
+    /* ── EMPIRE ── */
+    .emp { padding: 120px 0; background: var(--z100); }
+    .emp-c { background: var(--z950); border-radius: 24px; padding: 56px 64px; display: grid; grid-template-columns: 1fr 1.1fr; gap: 48px; align-items: center; position: relative; overflow: hidden; }
+    .emp-c .tag { color: var(--cy400); } .emp-c .tag::before { background: var(--cy400); }
+    .emp-c h2 { font-family: var(--fd); font-size: clamp(1.7rem,3vw,2.3rem); color: var(--z50); line-height: 1.12; margin-bottom: 16px; }
+    .emp-c>div>p { color: var(--z400); line-height: 1.75; font-size: .9rem; margin-bottom: 26px; }
+    .ep { display: flex; gap: 18px; align-items: start; background: var(--z900); border: 1px solid var(--z800); border-radius: 16px; padding: 26px; }
+    .ep img { width: 90px; height: 90px; border-radius: 12px; object-fit: cover; flex-shrink: 0; }
+    .ep h3 { font-family: var(--fd); font-size: 1.1rem; color: var(--z50); margin-bottom: 2px; }
+    .ep .cr { font-size: .7rem; color: var(--cy400); font-weight: 600; margin-bottom: 10px; }
+    .ep p { font-size: .8rem; color: var(--z500); line-height: 1.7; }
+    .emp-gl { position: absolute; width: 400px; height: 400px; background: var(--cy500); opacity: .04; filter: blur(100px); border-radius: 50%; top: -150px; right: -100px; }
+
+    /* ── HOURS ── */
+    .hrs { background: var(--cy500); padding: 44px 0; }
+    .hrs-r { display: flex; justify-content: center; gap: 36px; flex-wrap: wrap; }
+    .hrs-i { text-align: center; }
+    .hrs-i .d { font-size: .65rem; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: rgba(9,9,11,.45); margin-bottom: 3px; }
+    .hrs-i .t { font-family: var(--fd); font-size: 1rem; color: var(--z950); }
+
+    /* ── CONTACT ── */
+    .cta { padding: 120px 0; }
+    .cta-g { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; }
+    .ci-cards { display: grid; gap: 12px; margin-top: 30px; }
+    .ci-c { display: flex; align-items: start; gap: 14px; padding: 20px; background: var(--z100); border: 1px solid var(--z200); border-radius: 12px; transition: all .25s var(--ease); }
+    .ci-c:hover { border-color: var(--cy400); transform: translateX(4px); }
+    .ci-ico { width: 42px; height: 42px; border-radius: 10px; background: var(--cy-g); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .ci-ico svg { width: 18px; height: 18px; color: var(--cy500); }
+    .ci-c h4 { font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--z500); margin-bottom: 3px; }
+    .ci-c p, .ci-c a { font-size: .88rem; font-weight: 500; }
+    .ci-c a:hover { color: var(--cy500); }
+    .cf { background: var(--z100); border: 1px solid var(--z200); border-radius: 20px; padding: 40px; }
+    .cf h3 { font-family: var(--fd); font-size: 1.4rem; margin-bottom: 6px; }
+    .cf>p { font-size: .84rem; color: var(--z500); margin-bottom: 26px; }
+    .fr { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .fg { margin-bottom: 14px; }
+    .fg label { display: block; font-size: .76rem; font-weight: 600; margin-bottom: 6px; }
+    .fg input, .fg textarea, .fg select { width: 100%; padding: 12px 15px; font-family: var(--fb); font-size: .86rem; border: 1.5px solid var(--z300); border-radius: 10px; background: var(--z50); color: var(--z900); transition: all .2s var(--ease); outline: none; }
+    .fg input:focus, .fg textarea:focus, .fg select:focus { border-color: var(--cy500); box-shadow: 0 0 0 3px var(--cy-g); }
+    .fg textarea { min-height: 110px; resize: vertical; }
+
+    /* ── FOOTER ── */
+    .ft { background: var(--z950); color: var(--z500); padding: 56px 0 0; }
+    .ft-g { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 36px; padding-bottom: 44px; border-bottom: 1px solid var(--z800); }
+    .ft-br p { font-size: .82rem; line-height: 1.7; margin-top: 14px; max-width: 270px; }
+    .ft-so { display: flex; gap: 8px; margin-top: 18px; }
+    .ft-so a { width: 34px; height: 34px; border-radius: 8px; background: var(--z900); border: 1px solid var(--z800); display: flex; align-items: center; justify-content: center; transition: all .25s var(--ease); }
+    .ft-so a:hover { background: var(--cy500); border-color: var(--cy500); }
+    .ft-so a svg { width: 14px; height: 14px; color: var(--z400); }
+    .ft-so a:hover svg { color: var(--z950); }
+    .ft-c h4 { font-family: var(--fd); font-size: .95rem; color: var(--z50); margin-bottom: 16px; }
+    .ft-c li { margin-bottom: 9px; }
+    .ft-c a { font-size: .8rem; transition: color .2s; }
+    .ft-c a:hover { color: var(--cy400); }
+    .ft-b { padding: 22px 0; display: flex; justify-content: space-between; align-items: center; font-size: .72rem; flex-wrap: wrap; gap: 8px; }
+    .ft-b a { color: var(--cy400); font-weight: 600; transition: opacity .2s; }
+    .ft-b a:hover { opacity: .7; }
+
+    /* ── REVEAL ── */
+    .rv { opacity: 0; transform: translateY(28px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
+    .rv.vis { opacity: 1; transform: translateY(0); }
+    .d1 { transition-delay: .1s; } .d2 { transition-delay: .2s; } .d3 { transition-delay: .25s; } .d4 { transition-delay: .35s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .hero-g { grid-template-columns: 1fr; gap: 40px; } .hero-v { max-width: 520px; }
+      .tg { grid-template-columns: repeat(2,1fr); } .svc-grid { grid-template-columns: repeat(2,1fr); }
+      .emp-c { grid-template-columns: 1fr; padding: 40px; } .ft-g { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nm { display: none; position: absolute; top: 70px; left: 0; right: 0; background: var(--z50); border-bottom: 1px solid var(--z200); padding: 16px; flex-direction: column; gap: 4px; box-shadow: 0 20px 50px rgba(0,0,0,.1); }
+      .nm.on { display: flex; } .nm a { width: 100%; padding: 12px 16px; }
+      .hb { display: block; }
+      .about-l { grid-template-columns: 1fr; gap: 40px; }
+      .cta-g { grid-template-columns: 1fr; }
+      .ins-l { grid-template-columns: 1fr; gap: 40px; }
+      .test-g { grid-template-columns: 1fr; }
+      .sg { grid-template-columns: 1fr; }
+      .hf-card { left: 14px; bottom: -16px; } .hs-row { right: 10px; top: 10px; }
+    }
+    @media (max-width: 640px) {
+      .svc-grid { grid-template-columns: 1fr; } .tg { grid-template-columns: 1fr; }
+      .fr { grid-template-columns: 1fr; } .il { grid-template-columns: 1fr; }
+      .ft-g { grid-template-columns: 1fr; } .ft-b { flex-direction: column; text-align: center; }
+      .hrs-r { gap: 18px; }
+      .emp-c { padding: 28px 22px; } .ep { flex-direction: column; }
+      .hero-a { flex-direction: column; align-items: stretch; }
+      .cf { padding: 28px 22px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="w nav-i">
+      <a href="#" class="nav-b">
+        <img src="https://static.wixstatic.com/media/90a441_5cbf4a3b25c84a75ba2e2e844b4e984d~mv2.jpg/v1/fill/w_163,h_131,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/90a441_5cbf4a3b25c84a75ba2e2e844b4e984d~mv2.jpg" alt="RJN Physical Therapy">
+        <div class="nav-bt"><strong>RJN Physical Therapy</strong><small>Latham, NY &bull; Est. 1994</small></div>
+      </a>
+      <div class="nm" id="nm">
+        <a href="#about">About</a><a href="#services">Services</a><a href="#team">Team</a><a href="#shop">Shop</a><a href="#testimonials">Reviews</a><a href="#insurance">Insurance</a><a href="#contact" class="nc">Contact</a>
+      </div>
+      <button class="hb" id="hb" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <section class="hero" id="home">
+    <div class="hero-glow"></div>
+    <div class="w">
+      <div class="hero-g">
+        <div>
+          <div class="hero-ey">Now Accepting New Patients</div>
+          <h1>Quality Care for an <em>Active&nbsp;Life</em></h1>
+          <p class="hero-p">Orthopedic and sports injury specialists in New York's Capital District. Individualized, compassionate rehabilitation since 1994.</p>
+          <div class="hero-a">
+            <a href="#contact" class="btn btn-cy">Schedule Appointment <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></a>
+            <a href="tel:5184892020" class="btn btn-gh"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="width:16px;height:16px"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"/></svg>(518) 489-2020</a>
+          </div>
+        </div>
+        <div class="hero-v">
+          <img src="https://static.wixstatic.com/media/90a441_22d980452f8c4e0b9413f14de29aac97~mv2.jpg/v1/fill/w_1600,h_900,al_c,q_85,enc_avif,quality_auto/90a441_22d980452f8c4e0b9413f14de29aac97~mv2.jpg" alt="RJN Physical Therapy facility">
+          <div class="hf-card"><div class="n">30+</div><div class="l">Years of Excellence</div></div>
+          <div class="hs-row"><div class="hs-pill"><div class="n">8</div><div class="l">Therapists</div></div><div class="hs-pill"><div class="n">1:1</div><div class="l">Care</div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="w"><div class="about-l rv">
+      <div class="about-m"><img src="https://static.wixstatic.com/media/90a441_d523a6a455b64ace802578841db55c61~mv2.jpg/v1/fill/w_520,h_694,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/90a441_d523a6a455b64ace802578841db55c61~mv2.jpg" alt="Treatment session"><div class="ab"></div></div>
+      <div><div class="tag">About Us</div><h2 class="hd">A Tradition of Healing Since&nbsp;1994</h2><p class="pr">RJN Physical Therapy was established in 1994 as a small physical therapy facility. The vision was to create an orthopedic and sports injury private practice, which it has become. Our focus is on quality care for each and every patient. Our therapists and office staff have a genuine interest in serving the needs of our patients.</p><div class="mis"><h4>Our Mission</h4><p>"We pledge to provide quality, compassionate, and comprehensive care to enable our patients to return to a healthy and active lifestyle."</p></div></div>
+    </div></div>
+  </section>
+
+  <section class="svc" id="services">
+    <div class="svc-gl"></div>
+    <div class="w">
+      <div class="svc-h rv"><div class="tag">What We Offer</div><h2 class="hd">Comprehensive Care&nbsp;Services</h2><p class="pr">From post-surgical rehabilitation to personal fitness, individualized treatment plans tailored to your goals.</p></div>
+      <div class="svc-grid rv d1">
+        <div class="sc"><div class="sc-n">01</div><h3>Orthopedic Rehab</h3><p>Joint, muscle, and bone conditions — post-surgical recovery, fractures, and repetitive strain injuries.</p></div>
+        <div class="sc"><div class="sc-n">02</div><h3>Sports Injury</h3><p>Evidence-based rehabilitation for ACL, rotator cuff, ankle sprains, and all athletic injuries.</p></div>
+        <div class="sc"><div class="sc-n">03</div><h3>Manual Therapy</h3><p>Hands-on massage, joint mobilization, stretching, and traction to relieve pain and restore mobility.</p></div>
+        <div class="sc"><div class="sc-n">04</div><h3>Laser &amp; Modalities</h3><p>Ultrasound, electric stimulation, whirlpool, and laser treatment for neuropathy and chronic pain.</p></div>
+        <div class="sc"><div class="sc-n">05</div><h3>Personal Fitness</h3><p>1-on-1 personal fitness sessions, monthly gym memberships, and specialized senior programs.</p></div>
+        <div class="sc"><div class="sc-n">06</div><h3>Youth Athletes</h3><p>High school athlete sessions and the Competitive Edge speed, agility, and strength program for ages 9+.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="team" id="team">
+    <div class="w">
+      <div class="team-h rv"><div class="tag" style="justify-content:center;">Our Therapists</div><h2 class="hd">Meet the Team Behind Your&nbsp;Recovery</h2><p class="pr">Experienced, board-certified professionals dedicated to getting you back to your best.</p></div>
+      <div class="tg">
+        <div class="tc rv d1"><div class="tc-i"><img src="https://static.wixstatic.com/media/90a441_626e140245794bed9b484cd9bf624d94~mv2.jpg/v1/fill/w_396,h_528,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/90a441_626e140245794bed9b484cd9bf624d94~mv2.jpg" alt="Rick Waite"></div><div class="tc-b"><h3>Rick Waite</h3><span>PT, DPT</span></div></div>
+        <div class="tc rv d2"><div class="tc-i"><img src="https://static.wixstatic.com/media/90a441_c2f03422e61f48558db6208b4bbc23c5~mv2.jpg/v1/fill/w_396,h_528,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/90a441_c2f03422e61f48558db6208b4bbc23c5~mv2.jpg" alt="Brendan Sullivan"></div><div class="tc-b"><h3>Brendan Sullivan</h3><span>PT, DPT, OCS</span></div></div>
+        <div class="tc rv d3"><div class="tc-i"><img src="https://static.wixstatic.com/media/90a441_38b45d65ceb54735a80b8f2ba9f579fa~mv2.jpg/v1/fill/w_396,h_528,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/90a441_38b45d65ceb54735a80b8f2ba9f579fa~mv2.jpg" alt="Becky Staples"></div><div class="tc-b"><h3>Becky Staples</h3><span>PT, DPT</span></div></div>
+        <div class="tc rv d4"><div class="tc-i"><img src="https://static.wixstatic.com/media/90a441_d23c01db17114634932a1713657ec20b~mv2.jpg/v1/fill/w_396,h_528,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/90a441_d23c01db17114634932a1713657ec20b~mv2.jpg" alt="Kelly Moran Chang"></div><div class="tc-b"><h3>Kelly Moran Chang</h3><span>PT, DPT, OCS</span></div></div>
+        <div class="tc rv d1"><div class="tc-i"><img src="https://static.wixstatic.com/media/90a441_46e58a33931c42b5981b1b3bde2f7d7a~mv2.jpg/v1/fill/w_400,h_534,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/90a441_46e58a33931c42b5981b1b3bde2f7d7a~mv2.jpg" alt="Joe O'Hagan"></div><div class="tc-b"><h3>Joe O'Hagan</h3><span>PTA, SCS</span></div></div>
+        <div class="tc rv d2"><div class="tc-i"><img src="https://static.wixstatic.com/media/90a441_5b810246c6564524903fbc4fd51080c5~mv2.jpg/v1/fill/w_400,h_534,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/90a441_5b810246c6564524903fbc4fd51080c5~mv2.jpg" alt="JJ Grogan"></div><div class="tc-b"><h3>JJ Grogan</h3><span>PT, DPT</span></div></div>
+        <div class="tc rv d3"><div class="tc-i"><img src="https://static.wixstatic.com/media/90a441_2b78491b26a64e34aea60cd75e1979c7~mv2.jpg/v1/fill/w_400,h_534,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/90a441_2b78491b26a64e34aea60cd75e1979c7~mv2.jpg" alt="Cathy Lincourt"></div><div class="tc-b"><h3>Cathy Lincourt</h3><span>PTA</span></div></div>
+        <div class="tc rv d4"><div class="tc-i"><img src="https://static.wixstatic.com/media/90a441_5bff4f306cb2436993929e4849ed28da~mv2.jpg/v1/fill/w_466,h_544,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/90a441_5bff4f306cb2436993929e4849ed28da~mv2.jpg" alt="Lynn Isernia"></div><div class="tc-b"><h3>Lynn Isernia</h3><span>PT</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="shop" id="shop">
+    <div class="w">
+      <div class="shop-h rv"><div class="tag" style="justify-content:center;">Spring Sessions</div><h2 class="hd" style="color:var(--z50);">Recover Faster, Perform&nbsp;Better</h2><p class="pr" style="color:var(--z400);">Book a guided recovery session at our facility — available to patients and wellness clients alike.</p></div>
+      <div class="sg">
+
+        <!-- Hot & Cold Contrast Therapy Session -->
+        <div class="pc rv d1">
+          <div class="pc-hero" style="position:relative;overflow:hidden;">
+            <div style="position:absolute;inset:0;display:flex;">
+              <div style="flex:1;display:flex;align-items:center;justify-content:center;background:linear-gradient(160deg,#1a0500,var(--z950));">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="#f97316" width="64" height="64" style="opacity:.35;"><path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0 1 12 21 8.25 8.25 0 0 1 6.038 7.047 8.287 8.287 0 0 0 9 9.601a8.983 8.983 0 0 1 3.361-6.867 8.21 8.21 0 0 0 3 2.48Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 18a3.75 3.75 0 0 0 .495-7.468 5.99 5.99 0 0 0-1.925 3.547 5.975 5.975 0 0 1-2.133-1.001A3.75 3.75 0 0 0 12 18Z"/></svg>
+              </div>
+              <div style="width:1px;background:var(--z700);"></div>
+              <div style="flex:1;display:flex;align-items:center;justify-content:center;background:linear-gradient(160deg,#00101a,var(--z950));">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="var(--cy400)" width="64" height="64" style="opacity:.35;"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"/></svg>
+              </div>
+            </div>
+            <div class="pc-badge">Popular</div>
+          </div>
+          <div class="pc-body">
+            <h3>Hot &amp; Cold Therapy</h3>
+            <div class="ps">Sauna + Cold Plunge — always together</div>
+            <p>This session combines back-to-back sauna and cold plunge for a powerful contrast therapy protocol. The sauna deeply relaxes muscles, opens blood vessels, and prepares the body — then the cold plunge rapidly constricts circulation, flushing out inflammation and triggering a surge of energy and mental clarity. Together, they create a pumping effect that dramatically accelerates recovery.</p>
+            <p style="font-size:.8rem;color:var(--z500);margin-top:-10px;margin-bottom:20px;">Ideal for athletes, post-surgical patients, those managing chronic pain or inflammation, and anyone looking to boost energy and resilience.</p>
+            <div class="pt">
+              <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>Reduces inflammation</span>
+              <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>Faster muscle recovery</span>
+              <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>Boosts circulation</span>
+              <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>Mental clarity &amp; mood</span>
+            </div>
+            <div class="pc-ft"><div class="pr" style="font-size:.8rem;color:var(--z400);">Session — contact for pricing</div><a href="#contact" class="btn btn-cy" style="padding:10px 20px;font-size:.78rem;">Book Session <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></a></div>
+          </div>
+        </div>
+
+        <!-- Compression Arm Sleeve Session -->
+        <div class="pc rv d2">
+          <div class="pc-hero"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width=".8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 0 0-2.455 2.456Z"/></svg><div class="pc-badge">New</div></div>
+          <div class="pc-body">
+            <h3>Compression Arm Sleeves</h3>
+            <div class="ps">In-clinic compression sleeve sessions</div>
+            <p>Our compression arm sleeve sessions use graduated compression technology to actively promote blood flow, reduce swelling, and support targeted recovery of the arm and elbow. Applied in-clinic by our team, these sessions are especially beneficial for post-surgical patients, repetitive strain injuries, and athletes recovering from upper extremity overuse.</p>
+            <div class="pt">
+              <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>Graduated compression</span>
+              <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>Reduces swelling</span>
+              <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>Supports circulation</span>
+              <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>Clinician-guided</span>
+            </div>
+            <div class="pc-ft"><div class="pr" style="font-size:.8rem;color:var(--z400);">Session — contact for pricing</div><a href="#contact" class="btn btn-cy" style="padding:10px 20px;font-size:.78rem;">Book Session <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></a></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="test" id="testimonials">
+    <div class="w">
+      <div class="test-h rv"><div class="tag" style="justify-content:center;">Testimonials</div><h2 class="hd">What Our Patients&nbsp;Say</h2><p class="pr">Real stories from people who trusted us with their recovery.</p></div>
+      <div class="test-g">
+        <div class="tsc rv d1"><div class="ts-s"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><blockquote>"I spent a lot of time with these amazing therapists this winter. They made my recovery fun and productive! Highly recommended!"</blockquote><div class="ts-a"><div class="ts-av">B</div><div><strong>Blake</strong><small>Patient</small></div></div></div>
+        <div class="tsc rv d2"><div class="ts-s"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><blockquote>"They are as good and friendly as it gets. Family values, work ethic and they know physical therapy like nothing I've ever seen. Don't even think twice, get into their care ASAP."</blockquote><div class="ts-a"><div class="ts-av">E</div><div><strong>Ed</strong><small>Patient</small></div></div></div>
+        <div class="tsc rv d3"><div class="ts-s"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><blockquote>"By far the best experience with PT ever. They take the time to explain and demonstrate each exercise and make it a positive experience every time. Highly recommend!"</blockquote><div class="ts-a"><div class="ts-av">M</div><div><strong>Michelle</strong><small>Patient</small></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ins" id="insurance">
+    <div class="w"><div class="ins-l">
+      <div class="rv"><div class="tag">Insurance</div><h2 class="hd">We Accept Most Major&nbsp;Plans</h2><p class="pr">If you don't see your plan listed, please contact your insurer to determine your benefit information.</p></div>
+      <div class="il rv d2">
+        <div class="ii"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>Blue Shield NENY</div>
+        <div class="ii"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>CDPHP Plans</div>
+        <div class="ii"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>Empire BC/BS</div>
+        <div class="ii"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>Medicare</div>
+        <div class="ii"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>MVP Plans</div>
+        <div class="ii"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>No Fault (MVA)</div>
+        <div class="ii"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>NYSHIP (Empire Plan)</div>
+        <div class="ii"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>United Healthcare</div>
+        <div class="ii"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>Traditional Blue NENY</div>
+        <div class="ii"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>Worker's Comp</div>
+      </div>
+    </div></div>
+  </section>
+
+  <section class="emp" id="empire">
+    <div class="w"><div class="emp-c rv">
+      <div class="emp-gl"></div>
+      <div style="position:relative;z-index:2;"><div class="tag">A Division of RJN PT</div><h2>Empire Health &amp; Wellness Center</h2><p>Personalized treatment, care and encouragement so patients and gym clients can feel better and achieve their optimal levels of fitness and function.</p><a href="https://empirehwc.com/" target="_blank" rel="noopener" class="btn btn-gh" style="border-color:var(--z700);color:var(--z300);">Visit Empire HWC <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></a></div>
+      <div class="ep" style="position:relative;z-index:2;"><img src="https://static.wixstatic.com/media/90a441_eebd0aa2b2f84fcaa95328b33e076f1d~mv2.jpg/v1/fill/w_434,h_474,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/90a441_eebd0aa2b2f84fcaa95328b33e076f1d~mv2.jpg" alt="Brendan Sullivan"><div><h3>Brendan Sullivan</h3><div class="cr">PT, DPT, OCS, MTC, MSCS, CSCS</div><p>Founder of Empire HWC. Practicing since 1997. Board Certified Orthopedic Clinical Specialist, Manual Therapy Certified, Multiple Sclerosis Certified Specialist.</p></div></div>
+    </div></div>
+  </section>
+
+  <section class="hrs">
+    <div class="w"><div class="hrs-r">
+      <div class="hrs-i"><div class="d">Mon</div><div class="t">7am–7pm</div></div>
+      <div class="hrs-i"><div class="d">Tue</div><div class="t">7am–6:30pm</div></div>
+      <div class="hrs-i"><div class="d">Wed</div><div class="t">7am–7pm</div></div>
+      <div class="hrs-i"><div class="d">Thu</div><div class="t">7am–6:30pm</div></div>
+      <div class="hrs-i"><div class="d">Fri</div><div class="t">8:30am–3:30pm</div></div>
+      <div class="hrs-i"><div class="d">Sat</div><div class="t">8am–12pm</div></div>
+      <div class="hrs-i"><div class="d">Sun</div><div class="t">Closed</div></div>
+    </div></div>
+  </section>
+
+  <section class="cta" id="contact">
+    <div class="w"><div class="cta-g">
+      <div class="rv"><div class="tag">Get in Touch</div><h2 class="hd">Ready to Start Your&nbsp;Recovery?</h2><p class="pr">Reach out to schedule an appointment or learn more about how we can help you get back to an active, healthy lifestyle.</p>
+        <div class="ci-cards">
+          <div class="ci-c"><div class="ci-ico"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/></svg></div><div><h4>Address</h4><p>250 Old Loudon Rd, Latham, NY 12110</p></div></div>
+          <div class="ci-c"><div class="ci-ico"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"/></svg></div><div><h4>Phone &amp; Fax</h4><p><a href="tel:5184892020">(518) 489-2020</a> &bull; Fax: (518) 489-0716</p></div></div>
+          <div class="ci-c"><div class="ci-ico"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/></svg></div><div><h4>Email</h4><a href="mailto:erjnphys@nycap.rr.com">erjnphys@nycap.rr.com</a></div></div>
+        </div>
+      </div>
+      <div class="cf rv d2">
+        <h3>Send Us a Message</h3><p>We'll get back to you as soon as possible.</p>
+        <form onsubmit="event.preventDefault(); this.querySelector('.btn').textContent='Sent!'; this.querySelector('.btn').style.background='var(--cy500)'; this.querySelector('.btn').style.color='var(--z950)';">
+          <div class="fr"><div class="fg"><label>Full Name *</label><input type="text" placeholder="Your name" required></div><div class="fg"><label>Email</label><input type="email" placeholder="you@email.com"></div></div>
+          <div class="fr"><div class="fg"><label>Phone</label><input type="tel" placeholder="(518) 000-0000"></div><div class="fg"><label>Reason</label><select><option value="">Select a reason</option><option>Orthopedic Rehab</option><option>Sports Injury</option><option>Post-Surgical</option><option>Personal Fitness</option><option>Product Inquiry</option><option>Other</option></select></div></div>
+          <div class="fg"><label>Message *</label><textarea placeholder="Tell us about your needs..." required></textarea></div>
+          <button type="submit" class="btn btn-dk" style="width:100%;justify-content:center;">Send Message <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></button>
+        </form>
+      </div>
+    </div></div>
+  </section>
+
+  <footer class="ft">
+    <div class="w">
+      <div class="ft-g">
+        <div class="ft-br">
+          <a href="#" class="nav-b"><img src="https://static.wixstatic.com/media/90a441_5cbf4a3b25c84a75ba2e2e844b4e984d~mv2.jpg/v1/fill/w_163,h_131,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/90a441_5cbf4a3b25c84a75ba2e2e844b4e984d~mv2.jpg" alt="RJN PT" style="border-radius:10px;"><div class="nav-bt"><strong style="color:var(--z50);">RJN Physical Therapy</strong><small>Latham, NY</small></div></a>
+          <p>Quality, compassionate, and comprehensive care since 1994. Helping our community return to healthy and active lifestyles.</p>
+          <div class="ft-so">
+            <a href="https://instagram.com/rjn_pt" target="_blank" rel="noopener" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="https://facebook.com/rjnpt" target="_blank" rel="noopener" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="https://twitter.com/sullptcscs" target="_blank" rel="noopener" aria-label="Twitter"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
+          </div>
+        </div>
+        <div class="ft-c"><h4>Quick Links</h4><ul><li><a href="#about">About Us</a></li><li><a href="#services">Services</a></li><li><a href="#team">Our Team</a></li><li><a href="#shop">Spring Sessions</a></li><li><a href="#testimonials">Reviews</a></li><li><a href="#contact">Contact</a></li></ul></div>
+        <div class="ft-c"><h4>Services</h4><ul><li><a href="#services">Orthopedic Rehab</a></li><li><a href="#services">Sports Injury</a></li><li><a href="#services">Manual Therapy</a></li><li><a href="#services">Laser Therapy</a></li><li><a href="#services">Personal Fitness</a></li></ul></div>
+        <div class="ft-c"><h4>Contact</h4><ul><li><a href="tel:5184892020">(518) 489-2020</a></li><li><a href="mailto:erjnphys@nycap.rr.com">erjnphys@nycap.rr.com</a></li><li>250 Old Loudon Rd</li><li>Latham, NY 12110</li></ul></div>
+      </div>
+      <div class="ft-b"><span>&copy; 2026 RJN Physical Therapy. All rights reserved.</span><span>250 Old Loudon Rd, Latham, NY 12110</span><span>Design &amp; Creation by <a href="#">MahanMedia LLC</a></span></div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('hb').addEventListener('click',function(){this.classList.toggle('on');document.getElementById('nm').classList.toggle('on');});
+    document.querySelectorAll('.nm a').forEach(a=>a.addEventListener('click',()=>{document.getElementById('hb').classList.remove('on');document.getElementById('nm').classList.remove('on');}));
+    const o=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('vis');});},{threshold:.1,rootMargin:'0px 0px -30px 0px'});
+    document.querySelectorAll('.rv').forEach(el=>o.observe(el));
+  </script>
+</body>
+</html>
